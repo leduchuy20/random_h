@@ -165,11 +165,7 @@ details summary{user-select:none}
 /* ---------- duck race ---------- */
 .race-box{position:relative;border:4px solid var(--ink);border-radius:20px;overflow:hidden;background:#3a9fe0}
 /* chế độ mở rộng đường đua (phủ kín cửa sổ) */
-<<<<<<< HEAD
 .race-box.expanded,.marble-box.expanded,.ufo-box.expanded,.farm-box.expanded,.mini-box.expanded,.claw-box.expanded,.scratch-box.expanded,.tube-box.expanded{position:fixed;inset:8px;z-index:40;height:auto;min-height:0;box-shadow:0 0 0 100vmax rgba(29,35,64,.6)}
-=======
-.race-box.expanded,.marble-box.expanded,.ufo-box.expanded,.farm-box.expanded,.mini-box.expanded{position:fixed;inset:8px;z-index:40;height:auto;min-height:0;box-shadow:0 0 0 100vmax rgba(29,35,64,.6)}
->>>>>>> cabf12fd699cd0117dfac4afb756f1d5d278f240
 .race-box.expanded{display:flex;flex-direction:column}
 .race-box.expanded .rh-fin{display:none}
 .xbar{position:absolute;top:8px;right:10px;z-index:7;display:none;gap:8px}
@@ -313,7 +309,6 @@ body.busy .xbar [data-x=start]{display:none}
 .farm-box .xbar{right:auto;left:10px}
 .farm-box.expanded .ufo-status{top:12px}
 
-<<<<<<< HEAD
 /* ---------- máy gắp thú ---------- */
 .claw-box{position:relative;height:min(72vh,calc(100vh - 200px));min-height:400px;border:4px solid var(--ink);border-radius:18px;overflow:hidden;background:#1a0f3d;touch-action:none}
 .claw-box canvas{display:block;width:100%;height:100%;cursor:pointer}
@@ -335,8 +330,6 @@ body.busy .xbar [data-x=start]{display:none}
 .scratch-box .xbar,.tube-box .xbar{right:auto;left:10px}
 .scratch-box.expanded .ufo-status,.tube-box.expanded .ufo-status{top:12px}
 
-=======
->>>>>>> cabf12fd699cd0117dfac4afb756f1d5d278f240
 /* ---------- trò mini ---------- */
 .mini-pick{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
 @media(max-width:1000px){.mini-pick{grid-template-columns:repeat(3,minmax(0,1fr))}}
@@ -561,12 +554,9 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:0 0 20px}
   <button data-tab="guess" title="Đoán số — Đoán số bí mật"><i>🤔</i><span><b>Đoán số</b><small>Đoán số bí mật</small></span></button>
   <button data-tab="bomb" title="Bom số — Ai chạm trúng bom"><i>💣</i><span><b>Bom số</b><small>Ai chạm trúng bom</small></span></button>
   <button data-tab="dice" title="Xúc xắc — Gieo xúc xắc"><i>🎲</i><span><b>Xúc xắc</b><small>Gieo xúc xắc</small></span></button>
-<<<<<<< HEAD
   <button data-tab="claw" title="Máy gắp thú — Tự lái càng gắp thú bí ẩn"><i>🕹️</i><span><b>Máy gắp thú</b><small>Gắp thú bí ẩn</small></span></button>
   <button data-tab="scratch" title="Cào thẻ trúng thưởng — Cào lớp bạc xem ai trúng"><i>🎟️</i><span><b>Cào thẻ</b><small>Cào lớp bạc trúng thưởng</small></span></button>
   <button data-tab="tube" title="Rút thăm trong ống — Lắc ống tre, que nào nhảy ra gọi bạn đó"><i>🎋</i><span><b>Rút thăm</b><small>Lắc ống tre rút que</small></span></button>
-=======
->>>>>>> cabf12fd699cd0117dfac4afb756f1d5d278f240
   <button data-tab="mini" data-mini="fish" class="tmini" title="Câu cá — Cá nào cắn câu"><i>🎣</i><span><b>Câu cá</b><small>Cá nào cắn câu</small></span></button>
   <button data-tab="mini" data-mini="balloon" class="tmini" title="Bóng bay — Quả cuối cùng còn lại"><i>🎈</i><span><b>Bóng bay</b><small>Quả cuối cùng còn lại</small></span></button>
   <button data-tab="mini" data-mini="dino" class="tmini" title="Khủng long — Ai bị ăn mất bánh"><i>🦖</i><span><b>Khủng long</b><small>Ai bị ăn mất bánh</small></span></button>
@@ -860,7 +850,6 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:0 0 20px}
   </div>
 </section>
 
-<<<<<<< HEAD
 <!-- ============ MÁY GẮP THÚ ============ -->
 <section class="tab" id="tab-claw">
   <div class="stage">
@@ -954,8 +943,6 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:0 0 20px}
   </div>
 </section>
 
-=======
->>>>>>> cabf12fd699cd0117dfac4afb756f1d5d278f240
 <!-- ============ MYSTERY BOX ============ -->
 <section class="tab" id="tab-box">
   <div class="panel">
@@ -1196,12 +1183,9 @@ const DUR_DEF = {
   ufo:  {d:2.5, min:0.8, max:8,  step:0.1, label:'🛸 UFO (mỗi vòng quét)'},
   farm: {d:2.5, min:1,   max:8,  step:0.5, label:'🐔 Bắt gà (mỗi lần rượt)'},
   mini: {d:12,  min:5,   max:40, step:1,   label:'🎮 Trò mini (thời gian chọn)'},
-<<<<<<< HEAD
   claw: {d:15,  min:5,   max:60, step:1,   label:'🕹️ Máy gắp thú (mỗi lần lái)'},
   scratch:{d:5, min:1,   max:20, step:0.5, label:'🎟️ Cào thẻ (tự cào)'},
   tube: {d:4,   min:1,   max:15, step:0.5, label:'🎋 Rút thăm (lắc ống)'},
-=======
->>>>>>> cabf12fd699cd0117dfac4afb756f1d5d278f240
   group:{d:3,   min:0,   max:20, step:0.5, label:'👥 Chia nhóm'},
   lotto:{d:3,   min:0.5, max:20, step:0.5, label:'🔢 Quay số'},
   dice: {d:1.5, min:0.3, max:10, step:0.1, label:'🎲 Xúc xắc'}
@@ -1628,11 +1612,7 @@ const Expand = {
   toggle(sel, on){
     const b=$(sel); on = on ?? !b.classList.contains('expanded');
     b.classList.toggle('expanded', on);
-<<<<<<< HEAD
     requestAnimationFrame(()=>{ Duck.layoutLanes(); Marble.resize(); Ufo.resize(); Farm.resize(); Mini.resize(); Claw.resize(); Scratch.resize(); Tube.resize(); });
-=======
-    requestAnimationFrame(()=>{ Duck.layoutLanes(); Marble.resize(); Ufo.resize(); Farm.resize(); Mini.resize(); });
->>>>>>> cabf12fd699cd0117dfac4afb756f1d5d278f240
   },
   close(){ $$('.expanded').forEach(b=>this.toggle('#'+b.id, false)); },
   get any(){ return !!$('.expanded'); }
@@ -1653,12 +1633,9 @@ function runningGame(){
   if(Ufo.busy) return 'ufo';
   if(Farm.busy) return 'farm';
   if(Mini.busy) return 'mini';
-<<<<<<< HEAD
   if(typeof Claw!=='undefined' && Claw.busy) return 'claw';
   if(typeof Scratch!=='undefined' && Scratch.busy) return 'scratch';
   if(typeof Tube!=='undefined' && Tube.busy) return 'tube';
-=======
->>>>>>> cabf12fd699cd0117dfac4afb756f1d5d278f240
   if(Lotto.rolling) return 'lotto';
   if(Dice.rolling) return 'dice';
   if(Group.busy) return 'group';
@@ -1686,12 +1663,9 @@ const STOP = {
   mini(){ Mini.run=null; Mini.busy=false; Mini.done=null; Mini.mixT0=0; $('#miniGo').disabled=false; $('#miniClock').classList.remove('show'); Mini.setup(true); },
   lotto(){ Lotto.rolling=false; ['#lottoGo','#shufGo','#shufNext','#shufReset','#shufCopy'].forEach(q=>{ const b=$(q); if(b) b.disabled=false; }); Lotto.load(); Lotto.renderDigits(); },
   dice(){ Dice.rolling=false; $('#diceGo').disabled=false; Dice.render(); },
-<<<<<<< HEAD
   claw(){ Claw.abort(); },
   scratch(){ Scratch.abort(); },
   tube(){ Tube.abort(); },
-=======
->>>>>>> cabf12fd699cd0117dfac4afb756f1d5d278f240
   group(){ Group.busy=false; $('#groupGo').disabled=false; Group.result=null; $('#groups').innerHTML=''; }
 };
 function stopGame(){
@@ -1744,10 +1718,7 @@ document.addEventListener('keydown', e=>{
   if(e.key==='Escape' && runningGame()){ e.preventDefault(); stopGame(); return; }
   if(e.key==='Escape' && Expand.any){ e.preventDefault(); Expand.close(); return; }
   if(inField) return;
-<<<<<<< HEAD
   const kh=TABS[State.tab]?.keys; if(kh && kh(e)){ e.preventDefault(); return; }   // trò tự xử lý phím (máy gắp thú)
-=======
->>>>>>> cabf12fd699cd0117dfac4afb756f1d5d278f240
   if(ACTION_KEYS.has(e.key)){
     const fn=TABS[State.tab]?.primary;
     if(fn){ e.preventDefault(); if(!e.repeat) fn(); }
@@ -4324,7 +4295,6 @@ const Mini = {
 };
 TABS.mini = { onShow:()=>Mini.onShow(), primary:()=>Mini.launch() };
 
-<<<<<<< HEAD
 /* ================= MÁY GẮP THÚ (2D) =================
    Thú bông KHÔNG mang tên: tên chỉ được rút (rint, đều nhau cho mọi bạn còn trong danh sách) đúng lúc thú rơi vào lỗ thưởng.
    Vì vậy người lái giỏi chỉ gắp được nhiều hơn, không chọn được người → tự điều khiển mà vẫn công bằng.
@@ -5375,8 +5345,6 @@ const Tube = {
 };
 TABS.tube = { onShow:()=>Tube.onShow(), primary:()=>Tube.primary() };
 
-=======
->>>>>>> cabf12fd699cd0117dfac4afb756f1d5d278f240
 
 /* ================= MYSTERY BOX ================= */
 const SURPRISES = [
@@ -6016,11 +5984,7 @@ function initRosterTab(){
 /* ================= boot ================= */
 Classes.load(); loadClassState();
 initHeader();
-<<<<<<< HEAD
 Wheel.init(); Slot.init(); Duck.init(); Marble.init(); Ufo.init(); Farm.init(); Mini.init(); Claw.init(); Scratch.init(); Tube.init(); Box.init(); Group.init(); Lotto.init(); Guess.init(); Bomb.init(); Dice.init();
-=======
-Wheel.init(); Slot.init(); Duck.init(); Marble.init(); Ufo.init(); Farm.init(); Mini.init(); Box.init(); Group.init(); Lotto.init(); Guess.init(); Bomb.init(); Dice.init();
->>>>>>> cabf12fd699cd0117dfac4afb756f1d5d278f240
 Timer.init(); Score.init(); Dur.init();
 initRosterTab();
 switchClass(Classes.curId, true);
