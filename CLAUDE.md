@@ -1,11 +1,11 @@
 # CLAUDE.md — Lớp Học Vui Vẻ (trò chơi ngẫu nhiên cho lớp học)
 
 ## Tổng quan
-Web app một file (`index.html`, trước 02/11/2026 tên là `tro-choi-lop-hoc.html`) để giáo viên chiếu lên máy chiếu và gọi ngẫu nhiên học sinh hoặc số thứ tự qua **12 trò chơi + 10 trò mini**. App còn có nhiều lớp, điểm danh, bảng điểm, đồng hồ đếm ngược và xuất/nhập dữ liệu. Người dùng mở file bằng cách bấm đúp (`file://`). Không có build step, server hay framework.
+Web app một file (`index.html`, trước 02/11/2026 tên là `tro-choi-lop-hoc.html`) để giáo viên chiếu lên máy chiếu và gọi ngẫu nhiên học sinh hoặc số thứ tự qua **15 trò chơi + 10 trò mini**. App còn có nhiều lớp, điểm danh, bảng điểm, đồng hồ đếm ngược và xuất/nhập dữ liệu. Người dùng mở file bằng cách bấm đúp (`file://`). Không có build step, server hay framework.
 
 **Ngôn ngữ:** UI hoàn toàn bằng tiếng Việt có dấu. Code, tên biến và comment kỹ thuật có thể dùng tiếng Anh.
 
-**Lưới chọn trò** (`nav#tabs`, thay cho thanh tab từ 31/10): 24 thẻ `button[data-tab]` có `<i>`icon, `<b>`tên, `<small>`mô tả, xếp `grid auto-fill minmax(150px,1fr)` (8 cột ở 1366px, 2 cột trên điện thoại). Thứ tự: **Danh sách lớp (thẻ đầu tiên)** → 12 trò chính → 10 thẻ trò mini (`data-tab="mini" data-mini="k"`, nền vàng `.tmini`) → Bảng điểm (nền xanh `.tcls`, thẻ Danh sách lớp cũng nền xanh). **Mở app luôn vào tab `roster`** (không nhớ tab cũ) và cuộn về đầu trang (`history.scrollRestoration='manual'`). Lưới luôn hiện phía trên; bấm thẻ thì trang tự cuộn xuống nếu sân khấu bị che. Lưới chọn trò cũ bên trong tab Trò mini (`#miniPick`) bị ẩn.
+**Lưới chọn trò** (`nav#tabs`, thay cho thanh tab từ 31/10): 26 thẻ `button[data-tab]` có `<i>`icon, `<b>`tên, `<small>`mô tả, xếp `grid auto-fill minmax(150px,1fr)` (8 cột ở 1366px, 2 cột trên điện thoại). Thứ tự: **Danh sách lớp (thẻ đầu tiên)** → 14 trò chính (Máy gắp thú, Cào thẻ, Rút thăm nằm sau Xúc xắc) → 10 thẻ trò mini (`data-tab="mini" data-mini="k"`, nền vàng `.tmini`) → Bảng điểm (nền xanh `.tcls`, thẻ Danh sách lớp cũng nền xanh). **Mở app luôn vào tab `roster`** (không nhớ tab cũ) và cuộn về đầu trang (`history.scrollRestoration='manual'`). Lưới luôn hiện phía trên; bấm thẻ thì trang tự cuộn xuống nếu sân khấu bị che. Lưới chọn trò cũ bên trong tab Trò mini (`#miniPick`) bị ẩn.
 | Tab (`section#tab-…`) | Phím số | Mô tả |
 |---|---|---|
 | `roster` 📋 Danh sách lớp | 1 | Thiết lập: danh sách, lớp, điểm danh, thời gian chạy, thử thách/phần thưởng |
@@ -21,6 +21,9 @@ Web app một file (`index.html`, trước 02/11/2026 tên là `tro-choi-lop-hoc
 | `guess` 🤔 Đoán số | — | Trò chơi |
 | `bomb` 💣 Bom số | — | Trò chơi |
 | `dice` 🎲 Xúc xắc | — | Trò chơi |
+| `claw` 🕹️ Máy gắp thú | — | Trò chơi (thẻ ngay sau Xúc xắc) |
+| `scratch` 🎟️ Cào thẻ | — | Trò chơi (sau Máy gắp thú) |
+| `tube` 🎋 Rút thăm | — | Trò chơi (sau Cào thẻ) |
 | `mini` 🎮 Trò mini | — | 10 thẻ riêng trong lưới (xem phần Trò mini) |
 | `score` 🏆 Bảng điểm | — | Bảng điểm |
 
@@ -29,6 +32,7 @@ Web app một file (`index.html`, trước 02/11/2026 tên là `tro-choi-lop-hoc
   - **Cập nhật three.js:** `npm pack three@0.149.0`, lấy `build/three.min.js` (bản UMD cuối cùng trước khi bỏ `build/three.min.js` ở r150+; phải kiểm tra file không chứa chuỗi `</script`). Code dùng `outputEncoding` mặc định (linear) và `ColorManagement.legacyMode` mặc định nên mã màu hex hiện đúng như viết.
 - `tro-choi-lop-hoc.html`: chỉ còn là trang chuyển hướng nhỏ sang `index.html` (giữ cho đường dẫn/bookmark cũ). **Mọi sửa đổi làm trên `index.html`.**
 - `CLAUDE.md`: file này.
+- **Repo trên máy người dùng:** `D:\experiences\random` (từ 19/11/2026; trước đó là thư mục Google Drive `H:\My Drive\tro giang\ALL\random`). Lưu bản mới vào đây.
 - **Git/GitHub:** người dùng tự commit & push (repo + GitHub Pages, `index.html` ở gốc repo để link Pages gọn `https://<user>.github.io/<repo>/`). Claude chỉ sửa file, không push.
 
 Thứ tự trong `<script>`: helpers (`rint`, `rand01`, `shuffle`, `store`, `Dur`, `copyText`, `toast`) → `Sound` → `Confetti` → `Modal` → state, classes & roster → mở rộng đường đua (`Expand`) → tabs & phím tắt → các game theo thứ tự tab → `Timer` → `Score` → header/roster init → boot.
@@ -71,7 +75,7 @@ Thứ tự trong `<script>`: helpers (`rint`, `rand01`, `shuffle`, `store`, `Dur
 ### Các key trong localStorage (đều có prefix `lhvv_`)
 - **Dữ liệu:** `classes`, `curClass`.
 - **Cài đặt chung:** `noRepeat`, `display`, `wheelShort`, `wheelAutoMix`, `ufoAutoMix`, `sound`, `tab`, `challenges`, `rewards`, `durations`, `timerSec`.
-- **Tùy chọn từng trò:** `genCount`, `slotNameOnly`, `duckCount`, `duckSkills`, `duckView`, `marbleCount`, `ufoCount`, `ufoLevel`, `ufoSpeak`, `farmCount`, `farmLevel`, `farmSpeak`, `farmCam`, `miniGame`, `miniTwist`, `miniMix`, `miniSpeak`, `boxSurprise`, `groupVal`, `groupMode`, `lottoMin`, `lottoMax`, `lottoMaxTouched`, `lottoCount`, `lottoMode`, `diceN`, `scoreSort`, `wheelSizesOpen`.
+- **Tùy chọn từng trò:** `genCount`, `slotNameOnly`, `duckCount`, `duckSkills`, `duckView`, `marbleCount`, `ufoCount`, `ufoLevel`, `ufoSpeak`, `farmCount`, `farmLevel`, `farmSpeak`, `farmCam`, `miniGame`, `miniTwist`, `miniMix`, `miniSpeak`, `clawMode`, `clawLevel`, `clawGuar`, `clawCount`, `clawSpeak`, `clawMusic`, `scratchCount`, `scratchSpeak`, `tubeMode`, `tubeCount`, `tubeSpeak`, `boxSurprise`, `groupVal`, `groupMode`, `lottoMin`, `lottoMax`, `lottoMaxTouched`, `lottoCount`, `lottoMode`, `diceN`, `scoreSort`, `wheelSizesOpen`.
 - **Key cũ** (chỉ đọc khi chuyển dữ liệu): `roster`, `className`, `picked`, `history`, `lottoDrawn`.
 
 ## API dùng chung
@@ -110,12 +114,15 @@ Thứ tự trong `<script>`: helpers (`rint`, `rand01`, `shuffle`, `store`, `Dur
   | `ufo` | 2.5 (0.8–8) | thời gian một vòng quét; bạn thứ 2 trở đi quét bằng 75% |
   | `farm` | 2.5 (1–8) | thời gian một lần rượt (lần rượt trúng = 1.1×) |
   | `mini` | 12 (5–40) | tổng thời gian một lượt trò mini |
+  | `claw` | 15 (5–60) | thời gian lái càng mỗi lần gắp (hết giờ càng tự thả) |
+  | `scratch` | 5 (1–20) | thời gian đồng xu tự cào hết một thẻ |
+  | `tube` | 4 (1–15) | thời gian lắc ống; que thứ 2 trở đi trong cùng lượt lắc 60% |
 - **`Timer.open(name, autoStart)`:** đồng hồ đếm ngược (overlay `#timer`), có các mốc 10s–3 phút và ô nhập số giây; còn 5 giây thì kêu bíp, hết giờ thì chuông.
 - **Quản lý lớp:**
   - `switchClass(id)`, `newClass()` (dùng `prompt`), `deleteClass()` (dùng `confirm`, luôn còn ít nhất 1 lớp);
   - `exportData()` tải file `lop-hoc-vui-ve-YYYY-MM-DD.json` gồm mọi lớp + thử thách + phần thưởng;
   - `importData(text)` gộp theo tên lớp (trùng tên thì ghi đè).
-- **`Expand.toggle('#raceBox' | '#marbleBox' | '#ufoBox' | '#farmBox' | '#miniBox', on?)`:** chế độ mở rộng đường đua (xem bên dưới).
+- **`Expand.toggle('#raceBox' | '#marbleBox' | '#ufoBox' | '#farmBox' | '#miniBox' | '#clawBox' | '#scratchBox' | '#tubeBox', on?)`:** chế độ mở rộng đường đua (xem bên dưới).
 - Bảng màu `COLORS` (8 màu); `LIGHT_BG` là các màu nền cần chữ tối. Class CSS dùng lại: `.panel`, `.btn` (`.big`, `.sm`, `.red`, `.blue`, `.green`, `.ghost`), `.chip-btn`, `.row`, `.field`, `.check`, `.hint`, `.stage` (khung chính + cột phải 320px), `.side`, `.empty`, `.nobadge`, `.countdown`.
 
 ## Tabs, phím tắt & khóa khi đang chạy
@@ -127,14 +134,14 @@ Thứ tự trong `<script>`: helpers (`rint`, `rand01`, `shuffle`, `store`, `Dur
   - Còn lại: phím hành động chạy `primary` của tab hiện tại. Bỏ qua khi focus input/textarea/select, và bỏ qua `e.repeat`.
 - **Phím số:** `1`–`9`, `0` chuyển theo `TAB_ORDER` = 10 thẻ đầu tiên trong lưới **không tính thẻ trò mini** (`#tabs button:not([data-mini])`). Chèn thẻ mới sẽ làm các phím phía sau dịch chỗ.
 - **⏹ Dừng lượt này** (`#stopBtn`, nổi góc phải dưới, z-index 46 để hiện cả khi Mở rộng; phím **Esc** khi có trò đang chạy): `stopGame()`.
-  - `Run.ep` tăng lên → `sleep()` và `tween()` của lượt cũ **không bao giờ resolve** (các hàm async treo lại, không gọi `pick`/modal), các vòng `requestAnimationFrame` và `setTimeout` của Wheel, Slot, Duck (cả 2 kiểu), Group, Lotto.animate, Dice kiểm tra `ep!==Run.ep` rồi thoát; Marble dừng nhờ `racing=false`, Mini nhờ `run=null`, Farm nhờ `chaseCtl/walkTo=null`.
+  - `Run.ep` tăng lên → `sleep()` và `tween()` của lượt cũ **không bao giờ resolve** (các hàm async treo lại, không gọi `pick`/modal), các vòng `requestAnimationFrame` và `setTimeout` của Wheel, Slot, Duck (cả 2 kiểu), Group, Lotto.animate, Dice kiểm tra `ep!==Run.ep` rồi thoát; Marble dừng nhờ `racing=false`, Mini nhờ `run=null`, Farm nhờ `chaseCtl/walkTo=null`; Claw, Scratch, Tube là máy trạng thái trong vòng `requestAnimationFrame` nên `abort()` đặt lại trạng thái là đủ.
   - `Run.snap` (chụp trong vòng 150ms đầu lượt: `picked`, `history`, `calls`) được trả lại → bạn bị gọi trong lượt dở dang coi như chưa bị gọi.
   - `STOP[game]()` mở lại các nút, xóa trạng thái dở và dựng lại sân (`setup()`/`refresh()`/`fill()`/`render()`…). **Thêm trò mới có hoạt cảnh thì phải thêm một mục `STOP`** và cho vòng lặp kiểm tra `Run.ep`.
   - Bấm thẻ trò khác khi đang chạy: toast nhắc dùng nút Dừng, nút Dừng rung lên.
 - `markNav()` tô sáng thẻ đang chơi (với thẻ trò mini: chỉ thẻ có `data-mini === Mini.gk`); gọi trong `goTab()` và `Mini.markPick()`. Click thẻ trò mini → `goTab('mini')` rồi `Mini.choose(k)`; đang chơi dở thì không đổi trò.
 - Nút bấm được `blur()` sau click để phím Space/Enter không kích hoạt lại nút đó.
 - **Khóa khi đang chạy:** tab bị ẩn (`display:none`) làm trình duyệt **hủy CSS transition**. Reel jackpot và cube xúc xắc nhảy thẳng tới kết quả trong khi `setTimeout` vẫn chạy, nên khi quay lại tab thì kết quả đã hiện sẵn.
-  - Cách xử lý: `runningGame()` trả về game đang chạy (dựa trên các cờ `Wheel.spinning`, `Slot.spinning`, `Duck.racing`, `Marble.racing`, `Ufo.busy`, `Lotto.rolling`, `Dice.rolling`, `Group.busy`).
+  - Cách xử lý: `runningGame()` trả về game đang chạy (dựa trên các cờ `Wheel.spinning`, `Slot.spinning`, `Duck.racing`, `Marble.racing`, `Ufo.busy`, `Lotto.rolling`, `Dice.rolling`, `Group.busy`, `Mini.busy`, `Claw.busy`, `Scratch.busy`, `Tube.busy`).
   - `blockedByRunning()` chặn `goTab()` và việc đổi lớp, kèm toast nhắc.
   - Một `setInterval` 150ms gắn `body.busy` để làm mờ các tab khác.
 - **Mở rộng đường đua:** `.expanded` = `position:fixed`, phủ kín cửa sổ, z-index 40 (modal là 50, timer 55, toast 70). Bên trong có `.xbar` với nút Bắt đầu / Thu nhỏ; nút Bắt đầu tự ẩn khi `body.busy`. Chuyển tab thì `Expand.close()`. Sau khi bật/tắt phải gọi lại `Duck.layoutLanes()`, `Marble.resize()` và `Ufo.resize()`, việc này `Expand` đã làm sẵn.
@@ -150,6 +157,9 @@ Thứ tự trong `<script>`: helpers (`rint`, `rand01`, `shuffle`, `store`, `Dur
 | `ufo` | `Ufo` | **UFO bắt trả bài** (lấy ý tưởng từ "UFO Khảo bài" của KROMA, nhưng tự vẽ và tự viết). Canvas khu phố ban đêm: trời sao, trăng, nhà, bãi cỏ; mỗi bạn trong `pool()` là một nhân vật (`kids`, xếp theo `arrange()`: thứ tự đã trộn `Classes.cur().ufoOrder` hoặc theo `no`; nút 🔀/↺ gọi `mix()` → `reorder(ms)` cho các bạn nhảy sang chỗ mới; tùy chọn `#ufoAutoMix` (key `ufoAutoMix`) đổi chỗ trước mỗi lượt, trừ lượt bắt bù khi có bạn vắng; `layout()` tự chọn số hàng sao cho nhân vật to nhất). Ngoại hình `look(s)` cố định theo `key`; nam/nữ ưu tiên `s.gender` → tên riêng phổ biến (`UFO_GIRL`/`UFO_BOY`) → đệm Thị/Văn → hash. Hash phải dùng `>>>` (`>>` từng làm chỉ số âm → nhân vật mất tóc/màu áo). **Chọn trước bằng `choose(p,k)` = `shuffle(p).slice(0,k)`** (đã kiểm chi-square), hoạt cảnh chỉ để diễn: bay vào → `sweep()` quét đèn vàng (nhân vật trong đèn giơ tay "!") theo `UFO_SWEEPS` (Nhẹ 1 / Hồi hộp 2 / Cực căng 3 vòng; Cực căng có thêm `decoy()` lượn nhầm một bạn khác) → `capture()` tia hút xanh kéo nhân vật lên tàu. Gọi 1–10 bạn/lượt (`#ufoCount`). `#ufoStatus` là dòng trạng thái. Khoang hành khách `#ufoCabin`: nút 🚫 → `absent(key)` (unpick + setAbsent + `launch({k:1, quick:true, append:true})`); đổi `rosterVer` thì khoang tự xóa. Một bạn thì dùng `personModal`, nhiều bạn thì modal liệt kê `.ufo-list`. Đọc tên bằng `speechSynthesis` (`vi-VN`, ưu tiên giọng `vi*` có trong máy; nếu không có thì `#ufoVoiceHint` báo cách cài). `tween(ms, fn)` + `ease2` là helper hoạt cảnh; vòng vẽ `loop()` chỉ chạy khi tab UFO đang mở hoặc đang bay. |
 | `farm` | `Farm` | **Bắt gà 3D** (three.js) — xem phần riêng bên dưới. |
 | `mini` | `Mini` + `MINI[k]` | **10 trò mini** — xem phần riêng bên dưới. |
+| `claw` | `Claw` | **Máy gắp thú 2D** — xem phần riêng bên dưới. |
+| `scratch` | `Scratch` | **Cào thẻ trúng thưởng** — xem phần riêng bên dưới. |
+| `tube` | `Tube` | **Rút thăm trong ống** — xem phần riêng bên dưới. |
 | `box` | `Box` | Lật 3D. Trộn ~12% ô bất ngờ (`SURPRISES`, không `pick`). `sync()` làm mờ hộp của bạn đã gọi hoặc vắng mà không xáo lại. `primary` mở một hộp ngẫu nhiên. |
 | `group` | `Group` | Dùng `present()`; chia vòng tròn nên các nhóm lệch nhau tối đa 1; người đầu mỗi nhóm là nhóm trưởng; sao chép kết quả. |
 | `lotto` | `Lotto` | `drawn` lưu theo lớp. `nameOf(x)` tìm theo `no`, không theo index. Khi bật "Hiện tên" thì bỏ qua số của bạn vắng. Max mặc định = `no` lớn nhất, trừ khi người dùng đã tự sửa (`lottoMaxTouched`). **Hai chế độ** (`mode`, key `lottoMode`, nút `#lottoMode`): *Quay từng số* như cũ, và *Trộn cả dãy*: `shuffleRun()` lấy mọi số từ Từ→Đến (tối đa 200 số; bỏ số của bạn vắng khi bật "Hiện tên"), xáo trước bằng `shuffle()` rồi diễn vài lượt `flip()` (thẻ bay đổi chỗ, kỹ thuật FLIP; số lượt theo `Dur('lotto')`). Dãy lưu theo lớp ở `Classes.cur().shuffle = {a, b, order, done}`. `next()` gọi số kế tiếp chưa gọi và không vắng → `pick` + `personModal` ("Vắng – gọi số kế tiếp"); bấm thẻ thì đánh dấu/bỏ đánh dấu tay; có nút sao chép dãy. Phần tử chỉ thuộc một chế độ có class `.roll-only` / `.shuf-only` và được ẩn bằng `hidden` (CSS `[hidden]{display:none !important}`). Space: đang ở Trộn thì còn số → `next()`, hết số → trộn mới. |
@@ -208,6 +218,39 @@ Thứ tự trong `<script>`: helpers (`rint`, `rand01`, `shuffle`, `store`, `Dur
 - **Vắng:** `#farmCabin` (🧺 Chuồng gà) có nút 🚫 gọi `absent(key)`: bỏ gà khỏi chuồng rồi chạy `launch({k:1, quick:true, append:true})` (quick = không rượt hụt). `results()`, `speak()` (dùng `Ufo.viVoice()`) và `renderCabin()` làm giống UFO.
 - **Test:** Chromium headless cần `--use-angle=swiftshader --enable-unsafe-swiftshader`. Máy test (2 lõi) chỉ đạt khoảng 10 fps nên chỉ dùng để chụp ảnh và đo thời lượng (theo dõi `#farmStatus` bằng `MutationObserver`). Mức Hồi hộp, 1 bạn ≈ 11s tới lúc "CHỘP!".
 
+## Máy gắp thú (`Claw`, tab `claw`)
+- **Ý tưởng của người dùng:** thú bông **không mang tên/số** (chỉ thẻ ❓, loại thú và màu bốc ngẫu nhiên, không gắn với ai). **Tên được rút trong `capture()` đúng lúc thú rơi qua lỗ quà**: `pool()[rint(n)]` → mọi bạn còn lại có cơ hội như nhau, kể cả khi học sinh tự lái càng (kỹ năng chỉ quyết định có gắp được hay không). Kiểm tra chi-square việc rút: p = 0,61 (59 bạn × 30k).
+- **Chế độ** `#clawMode`: `play` (🕹️ tự điều khiển: ← → giữ để lái, nút ◀ ▶ giữ bằng chuột/cảm ứng, bút trình chiếu Page Up/Down nhích 2r mỗi lần, Space/Enter/↓/./B = bỏ xu hoặc thả càng; hết `Dur claw` giây càng tự thả) và `auto` (🤖 máy tự ngắm một con ngẫu nhiên ± sai số theo độ khó, chạy nhanh ×1,5).
+- **Phím riêng:** `TABS.claw.keys(e)` được gọi trong bộ xử lý phím chung **trước** `ACTION_KEYS` (trả `true` = đã xử lý). `keyup` ← → thả `hold`.
+- **Vật lý** (`phys`, bước cố định 1/120s): Verlet + 4 vòng ràng buộc vị trí; thú là hình tròn bán kính `g.r`; sàn có ma sát, vách lỗ quà là đoạn thẳng đứng `x = g.wx` từ `wallTop` xuống sàn; lỗ quà không có sàn. Thú đứng yên ~50 bước thì **ngủ** (không tích phân, "nặng" hơn khi va chạm) cho đống thú không rung; `settle(n)` chạy trước không ngủ rồi cho ngủ hết. Càng gắp là các hình tròn động học (`colliders()`); thú bị kẹp `held` = khối lượng vô hạn, đi theo `grasp()` và đung đưa theo gia tốc ngang (`c.sw`).
+- **Kích thước:** `geo()` — `r = clamp(min(rộng×0,82×3,1/(2N), cao×0,52/(3,1×1,74)), 16, 46)` (40 bạn ở sân 960px ≈ r 28). Đổi kích thước khi đang rảnh → `setup()` dựng đống mới; khi đang chơi → co giãn toạ độ.
+- **Một lần gắp:** `aim` → `drop` (dừng khi tâm kẹp chạm nửa trên một con hoặc sàn/vách) → `close` (480ms) → `judge()` → `lift` → `carry` (về trên lỗ quà) → `release` → `fall` (chờ thú rơi qua `floorY + 1,2r`) → `reveal` (hoạt cảnh thú bay ra, thẻ lật thành tên, 1,7s) → hết lượt hoặc gắp bạn tiếp theo (`#clawCount` 1–3).
+- **`judge()`:** con gần tâm kẹp nhất trong |dx| < 1,3r, |dy| < 1,05r; độ thẳng hàng `al = 1 − d/1,3r`; `CLAW_LV` = {easy p .45+.5al, mid .2+.5al, hard .08+.35al}, phần còn lại chia "tuột giữa đường" (`slip`, tuột ở 25–95% quãng nhấc+mang) / "trượt". **`#clawGuar` (mặc định 3):** từ lần thứ N, chỉ cần thả trúng hoặc gần (|dx| < 2,4r) một con là chắc chắn dính (`this.sure`).
+- **Chống thú văng vào lỗ quà** (người dùng báo lỗi 19/11): (1) tấm chắn lỗ quà cao `wallTop = min(floorY − 3,6r, gy0 + 10 + 4,3r)` — chỉ chừa vừa đủ cho thú đang bị kẹp đi qua phía trên; (2) khi càng hoặc thú đang bị kẹp đẩy một con, chỉ ~15% độ dời thành vận tốc (`px/py` dời theo 85%) — trước đây đẩy bao nhiêu là bắn đi bấy nhiêu; (3) giới hạn vận tốc 0,35r mỗi bước; (4) Lắc máy nhẹ lại. Đo 23–26 lần gắp + 6 lần lắc: trước 40 lần văng, sau 0. Nếu vẫn có con lọt vào lỗ mà **không phải con đang gắp** → thả lại lên đống ("trả lại vào máy"), không rút tên; con đang gắp mà tuột rơi trúng lỗ (pha lift/carry/release/fall) thì vẫn tính trúng.
+- **Số thú = số bạn còn có thể được gọi** (`wantCount()` = `pool().length`, tối đa 80). Tắt "Không gọi lại" thì sau mỗi lần trúng thả một con mới từ trên xuống → **luôn đủ cả lớp**. Thú lăn qua vách vào lỗ lúc không phải pha `fall` được thả lại lên đống.
+- **Kệ "Đã gắp được"** (`shelf`, xoá khi đổi lớp): 🚫 Vắng → `unpick` + `setAbsent` → `redraw()` rút ngay tên khác cho chính con thú đó (không cần gắp lại). Nút Vắng trong modal cũng gọi `redraw()`.
+- **🔀 Lắc máy:** rung tủ 0,8s và đá ngẫu nhiên mọi con. Âm thanh: tiếng xu, motor (khi càng chạy), nhạc 8-bit (`#clawMusic`), "ting" khi rơi vào lỗ.
+- Vẽ hoàn toàn bằng canvas: tủ hồng + bảng hiệu vàng có bóng đèn chạy (`bulbs`), kính phản chiếu, ray, càng 3 ngạnh, bàn điều khiển (cửa LẤY QUÀ, màn LED, cần gạt nghiêng theo hướng lái, nút GẮP nhấp nháy, khe xu). 9 loại thú (`CLAW_TYPES`: gấu, thỏ, mèo, cánh cụt, khủng long, heo, gà con, bạch tuộc, ếch) vẽ sẵn vào canvas phụ (`sprite()` cache theo loại+màu+cỡ).
+- `STOP.claw = Claw.abort()` (thả thú đang kẹp, càng về chỗ cũ); `runningGame()` trả `'claw'` khi `Claw.busy` (từ lúc bỏ xu tới khi rút tên xong).
+
+## Cào thẻ trúng thưởng (`Scratch`, tab `scratch`) — làm 19/11/2026
+- **Công bằng:** thẻ không gắn với ai. **Tên rút trong `scr()` ở nét cào đầu tiên chạm vào thẻ**: `drawName(c)` = `pool()[rint]`, trừ các bạn đã nằm trên thẻ khác cùng lượt. `pick()` chỉ chạy trong `win()` khi thẻ đã lộ, nên "Phát thẻ mới" bỏ thẻ cào dở không ghi lượt gọi ai. Lúc lộ mà bạn trên thẻ không còn trong `pool()` (vừa bị đánh dấu vắng, đổi danh sách) thì rút lại. Chi-square: 20k lượt × 6 thẻ, 30 bạn, p = 0,28 (thẻ đầu p = 0,11), không trùng trong lượt.
+- **Số thẻ** `#scratchCount`: 1 thẻ to (mặc định, người dùng chọn) / 3 / 6, tối đa = số bạn còn lại. **Không có thẻ bất ngờ** (người dùng bỏ hẳn). `layout()` chọn số cột cho thẻ to nhất (tỉ lệ 1,72), cửa sổ cào = 86% × 53% thẻ.
+- **Cào:** Pointer Events (chuột, bút, ngón tay; `touch-action:none`, `getCoalescedEvents`) → nét `destination-out` cọ tròn bán kính `br = max(13, 0,14 × cao cửa sổ)` trên canvas mặt nạ riêng từng thẻ (`c.mask`). Lưới đo 36×14 ô (`c.cov`, `c.cnt`); **≥ 55% thì lộ** (`reveal` → lớp bạc mờ dần 450ms → `win`). Đổi cỡ khi đang cào dở thì co giãn mặt nạ cũ (không mất phần đã cào).
+- **Tự cào** (nút / Space = `primary`): đồng xu chạy zig-zag phủ cả cửa sổ trong `Dur scratch`, xong thì lộ. Hết thẻ thì Space = phát thẻ mới rồi tự cào luôn; nút "Phát thẻ mới" trong modal chỉ phát thẻ (để học sinh lên cào tay).
+- `busy` chỉ bật khi tự cào và trong 0,5s lộ thẻ (cào tay không khoá chuyển tab). `STOP.scratch = Scratch.abort()`: thẻ đang tự cào/đang lộ phủ bạc lại và bỏ tên (chưa ai bị `pick`).
+- Vẽ canvas: thân vé (`body()`, vẽ sẵn: nền theo `SCR_THEMES`, sọc chéo, răng cưa hai mép, "CÀO LÀ TRÚNG", "THẺ n", số vé, tên lớp), mặt dưới (`face()`: giấy kem + confetti + tên bằng `fitName`), lớp bạc (`silver()`: gradient bạc, hạt nhiễu, chữ "✦ CÀO ĐI", "🪙 CÀO Ở ĐÂY"), ánh kim chạy ngang, bụi bạc rơi, đồng xu làm con trỏ, dấu "TRÚNG!" + hào quang khi lộ. Tiếng sột soạt = nhiễu trắng lọc bandpass (`noise()`).
+- **`fitName(c, s, cx, cy, w, h, {badge, ink, outline, max})`** (hàm chung, khai báo ở đầu phần Cào thẻ): vẽ huy hiệu số + tên theo `State.display`, tự chọn 1 hoặc 2 dòng để chữ to nhất. Rút thăm cũng dùng.
+- Kệ "🎟️ Đã cào trúng" (`shelf`, xoá khi đổi lớp): 🚫 → `redraw(it)` rút tên khác ngay cho chính thẻ đó (thẻ đổi chữ), giống Máy gắp thú.
+
+## Rút thăm trong ống (`Tube`, tab `tube`) — làm 19/11/2026
+- **Cảnh:** ống tre (thân gradient xanh, 2 đốt, miệng ống, nhãn giấy đỏ "THĂM") trên bàn gỗ, tường vàng ấm + 2 đèn lồng đỏ đung đưa; khay "🥢 Que đã rút" bên phải (5 que gần nhất có ghi tên). Que kem màu (`TUBE_COLS`) **không ghi tên**, tối đa 40 que (`wantCount()` = `pool()` giới hạn 40; tắt "Không gọi lại" thì luôn đủ). Que được tả bằng `{rx, aj, P}` (vị trí ở miệng ống, lệch góc, phần nhô ra theo tỉ lệ `th`), `pose(k)` tính chân/đầu que trong toạ độ ống (gốc = đáy ống, ống xoay `theta` quanh đáy). Thứ tự vẽ: lòng ống → que → thân ống phía trước (che phần que trong ống).
+- **Công bằng:** **tên rút ở cuối pha `fly`** (que đã bay ra giữa màn hình, chưa có chữ): `drawName()` = `avail()[rint]` (`avail` = `pool()` trừ các bạn đã rút trong lượt). Que nào nhô lên (`rint` trong ống) hay học sinh bấm que nào chỉ là diễn. Chi-square 30k lượt × 3 que, 30 bạn: p = 0,063, không trùng.
+- **Hai cách rút** (`#tubeMode`): `shake` 🎋 lắc ống (`Dur tube`, lắc ±0,17 rad 2,4 Hz, tiếng lách cách ở mỗi lần đổi chiều, cuối lượt một que nhô dần lên) và `pick` 🙋 học sinh tự chọn: các que xòe rộng (`fan` 1,5), que dưới chuột nhô lên + viền vàng, bấm/chạm que → rút que đó. Space luôn là lắc ống rút giúp (ở `pick` thì rút nốt phần còn lại của lượt). Bấm vào sân khấu ở chế độ `shake` = Lắc ống.
+- **Máy trạng thái trong `update()`** (không dùng `setTimeout`): `shake` → `rise` (650ms, que trượt ra khỏi ống) → `fly` (900ms, bay vòng lên giữa, xoay 1 vòng thành que nằm ngang to, hiện miếng giấy) → **rút tên** → `write` (1s, chữ hiện dần từ trái sang có ngôi sao bút) → `commit()` (`pick`, kệ, confetti, đọc tên) → `show` → `toTray` (bay về khay). `#tubeCount` 1–5 que/lượt; que thứ 2+ lắc 60% thời gian. Một que → `personModal`, nhiều que → modal danh sách `.ufo-list`. `flush()` cho bấm tiếp ngay khi que còn đang bay về khay. `🔀 Xóc ống` (`mix`) chỉ xáo vị trí que.
+- `busy` từ lúc lắc/rút đến khi xong que cuối (ở `pick`, giữa các que `busy=false` và `round` vẫn giữ). `STOP.tube = Tube.abort()`: que đang bay về lại ống, gỡ các mục kệ/khay của lượt dở (`runAdded`); lượt gọi được `Run.snap` trả lại.
+- Kệ "🥢 Que đã rút": 🚫 → `redraw(old)` rút tên khác ngay cho que đó (khay đổi theo vì dùng chung object).
+
 ## Trò mini (`Mini`, tab `mini`)
 - Ý tưởng 10 trò lấy từ trang "Ms Alice's Random Name Picker" (của cô Lương Tâm); **hình và code tự viết**, vẽ hoàn toàn bằng canvas `#miniCanvas` (không dùng ảnh), dùng emoji cho vài chi tiết không có hướng (🍰 🐭 🐝 🧀 📺…). Không tự vẽ lại hình minh hoạ của trang gốc.
 - `MINI_GAMES` = danh sách thẻ chọn trò `{k, icon, name, sub, go (chữ trên nút), result (tiêu đề modal)}`: `fish` Câu cá, `balloon` Bóng bay, `dino` Khủng long, `rocket` Tên lửa, `torch` Đèn pin, `card` Thẻ đỏ, `blind` Bịt mắt bắt dê, `light` Đèn xanh đèn đỏ, `cat` Mèo bắt chuột, `bee` Ong tìm hoa. Lưới thẻ `#miniPick` (class `.mgcard` — **đừng dùng `.mcard`, đó là thẻ modal**).
@@ -232,7 +275,7 @@ Thứ tự trong `<script>`: helpers (`rint`, `rand01`, `shuffle`, `store`, `Dur
 5. Có random thì kiểm thống kê công bằng trước khi giao.
 
 ## Thứ tự boot & bẫy TDZ
-`Classes.load(); loadClassState(); initHeader(); Wheel/Slot/Duck/Marble/Ufo/Farm/Mini/Box/Group/Lotto/Guess/Bomb/Dice.init(); Timer.init(); Score.init(); Dur.init(); initRosterTab(); switchClass(curId, true); goTab(...)`
+`Classes.load(); loadClassState(); initHeader(); Wheel/Slot/Duck/Marble/Ufo/Farm/Mini/Claw/Scratch/Tube/Box/Group/Lotto/Guess/Bomb/Dice.init(); Timer.init(); Score.init(); Dur.init(); initRosterTab(); switchClass(curId, true); goTab(...)`
 - `applyRoster`, `updatePicked`, `setAbsent` và `runningGame` tham chiếu các object game (là `const`) qua `typeof`. **Trên `const` đang ở TDZ, `typeof` vẫn ném lỗi**, nên các hàm đó chỉ được chạy sau khi mọi object đã khai báo (tức là sau boot).
 - `switchClass` gọi `Lotto.load()`, `Guess.nextTurn()`, `Bomb.nextTurn()`, nên phải chạy sau các `init()`.
 
